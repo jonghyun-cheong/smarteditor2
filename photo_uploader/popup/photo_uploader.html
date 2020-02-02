@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<title>사진 첨부하기 :: SmartEditor2</title>
+<title>사진 첨부하기</title>
 <style type="text/css">
-/* NHN Web Standard 1Team JJS 120106 */ 
+/* NHN Web Standard 1Team JJS 120106 */
 /* Common */
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
 body,input,textarea,select,button,table{font-family:'돋움',Dotum,Helvetica,sans-serif;font-size:12px}
@@ -51,15 +51,15 @@ h1{color:#333;font-size:14px;letter-spacing:-1px}
     </div>
     <!-- //header -->
     <!-- container -->
-	
+
     <!-- [D] HTML5인 경우 pop_container 클래스와 하위 HTML 적용
 	    	 그밖의 경우 pop_container2 클래스와 하위 HTML 적용      -->
 	<div id="pop_container2" class="pop_container2">
     	<!-- content -->
-		<form id="editor_upimage" name="editor_upimage" action="FileUploader.php" method="post" enctype="multipart/form-data" onSubmit="return false;">
+		<form id="editor_upimage" name="editor_upimage" action="/?mode=fileupload/editor" method="post" enctype="multipart/form-data" onSubmit="return false;">
         <div id="pop_content2">
 			<input type="file" class="upload" id="uploadInputBox" name="Filedata">
-            <p class="dsc" id="info"><strong>10MB</strong>이하의 이미지 파일만 등록할 수 있습니다.<br>(JPG, GIF, PNG, BMP)</p>
+            <p class="dsc" id="info"><strong>1MB</strong>이하의 이미지 파일만 등록할 수 있습니다.<br>(JPG, GIF, PNG, BMP)</p>
         </div>
 		</form>
         <!-- //content -->
@@ -68,9 +68,9 @@ h1{color:#333;font-size:14px;letter-spacing:-1px}
     	<!-- content -->
         <div id="pop_content">
 	        <p class="dsc"><em id="imageCountTxt">0장</em>/10장 <span class="bar">|</span> <em id="totalSizeTxt">0MB</em>/50MB</p>
-        	<!-- [D] 첨부 이미지 여부에 따른 Class 변화 
+        	<!-- [D] 첨부 이미지 여부에 따른 Class 변화
             	 첨부 이미지가 있는 경우 : em에 "bg" 클래스 적용 //첨부 이미지가 없는 경우 : em에 "nobg" 클래스 적용   -->
-				 
+
             <div class="drag_area" id="drag_area">
 				<ul class="lst_type" >
 				</ul>
@@ -86,7 +86,7 @@ h1{color:#333;font-size:14px;letter-spacing:-1px}
     <!-- footer -->
     <div id="pop_footer">
 	    <div class="btn_area">
-            <a href="#"><img src="../../img/photoQuickPopup/btn_confirm.png" width="49" height="28" alt="확인" id="btn_confirm"></a>
+            <a href="#"><img src="../../img/photoQuickPopup/btn_confirm.png" width="49" height="28" alt="확인" id="btn_confirm" onclick="loadding()"></a>
             <a href="#"><img src="../../img/photoQuickPopup/btn_cancel.png" width="48" height="28" alt="취소" id="btn_cancel"></a>
         </div>
     </div>
@@ -95,6 +95,11 @@ h1{color:#333;font-size:14px;letter-spacing:-1px}
 <script type="text/javascript" src="jindo.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="jindo.fileuploader.js" charset="utf-8"></script>
 <script type="text/javascript" src="attach_photo.js" charset="utf-8"></script>
+<script type="text/javascript">
+    function loadding() {
+        $Element("btn_confirm").attr('src', '/Web/css/images/loader.gif');
+    }
+</script>
 
 </body>
 </html>
